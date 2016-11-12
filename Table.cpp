@@ -37,7 +37,7 @@ int main()
     table_.getNumberOfRows();
     table_.getNumerOfColumns();
     table_.getCell();
-    table_.changeCell(3,5,9.0);
+    table_.changeCell(3,4,6);
     table_.methodStdTable();
     table_.print2DVecotr();
     table_.removeRow();
@@ -75,6 +75,7 @@ void Table:: print2DVecotr(){
     cout<<"Total number of Rows using .size() function is ==> "<<MainVector.size()<<endl;
     int cells=0;
     for( row=0;row<MainVector.size();row++){
+        cout<<"Row No"<<row+1;
         for ( column=0 ;column<MainVector[row].size();column++){
             cells++;
             cout<<setw(12)<<MainVector[row][column];
@@ -90,7 +91,7 @@ double Table:: getAverage_column(int col){
         total=total +MainVector[i][col_no];
     }
     avg=total/MainVector.size();
-    cout<<"Average of column no ("<<col<< ") is equal to : "<<avg<<endl;
+//    cout<<"Average of column no ("<<col<< ") is equal to : "<<avg<<endl;
     return avg;
 }
 /*3.Get the corrected sample standard deviation of a column specified by the user.*/
@@ -106,7 +107,7 @@ double Table:: getSampleStdDevOfColumn(int col){
     }
     InverseN = 1.00/(MainVector.size()-1);
     StdDev=sqrt(InverseN * sum_of_pow_variants);
-    cout<<"Standars Deviation of column No ("<<col<<") is : "<<StdDev<<endl;
+  //  cout<<"Standars Deviation of column No ("<<col<<") is : "<<StdDev<<endl;
     return StdDev;
 }
 /*4.Get the number of rows in the table*/
@@ -150,7 +151,7 @@ void Table:: methodStdTable(){
     vector<vector<double>> standardised_vector;
     double standardised_cell;
     standardised_vector.resize(MainVector.size());
-    for(int row=0;row<=MainVector.size();row++)
+    for(int row=0;row<MainVector.size();row++)
     {
         for(int col=0;col<MainVector[row].size();col++)
         {
